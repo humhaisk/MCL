@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            /* Center the background container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .background-container {
+            height: 100px;
+            width: 1300px; /* Make sure width has px unit */
+            top: 600px;
+            position: relative;
+            background-image: url('1.png');
+            background-size: cover;
+            z-index: 3;
+            opacity: 0.9;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .bar1, .bar2 {
+            height: 100px;
+            width: 300px; /* Example width */
+            opacity: 0; /* Initially hidden */
+            transform: translateY(-20px); /* Start with an upward offset */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Transition effect */
+            pointer-events: none; /* Prevent clicks when invisible */
+        }
+
+        /* Position bar1 at the top of the container */
+        .bar1 {
+            top: -30px;
+            right: 160px;
+        }
+
+        /* Position bar2 lower down */
+        .bar2 {
+            top: -30px;
+            left: 50px;
+        }
+
+        .info-img1 img, .info-img2 img {
+            width: 410px; /* Adjust image size */
+            height: 80px;
+        }
+
+        .profile-img {
+            top: -80px;
+            left: 550px;
+            z-index: -1;
+        }
+
+        .profile-img-pic {
+            top: -150px;
+            right: 545px;
+            z-index: -1;
+        }
+
+        /* Show the bars with transition */
+        .show {
+            opacity: 1;
+            transform: translateY(0); /* Bring it to original position */
+            pointer-events: auto; /* Allow clicks when visible */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background-container">
+            <div class="bar1 absolute">
+                <div class="info-img1">
+                    <img src="3.png" alt="Image 1" width="">
+                </div>
+                <div class="player-info">
+                    <!-- Player info content here -->
+                </div>
+            </div>
+            <div class="bar2 absolute">
+                <div class="info-img2">
+                    <img src="3.png" alt="Image 2">
+                </div>
+                <div class="player-info">
+                    <!-- Player info content here -->
+                </div>
+            </div>
+            <div class="absolute profile-img">
+                <img src="2.png" alt="">
+            </div>
+            <div class="absolute profile-img-pic">
+                <img id="profile" src="profile.png" alt="Profile">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('profile').addEventListener('click', function() {
+            // Toggle visibility with transition for bar1 and bar2
+            const bar1 = document.querySelector('.bar1');
+            const bar2 = document.querySelector('.bar2');
+            
+            // Toggle the 'show' class to enable open and close transition
+            bar1.classList.toggle('show');
+            bar2.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
