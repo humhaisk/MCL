@@ -1,0 +1,67 @@
+
+.container {
+    /* Center the background container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-container {
+    height: 100px;
+    width: 1300px; /* Make sure width has px unit */
+    top: 600px;
+    position: relative;
+    background-image: url('1.png');
+    background-size: cover;
+    z-index: 3;
+    opacity: 0.9;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.bar1, .bar2 {
+    height: 100px;
+    width: 300px; /* Example width */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-20px); /* Start with an upward offset */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transition effect */
+    pointer-events: none; /* Prevent clicks when invisible */
+}
+
+/* Position bar1 at the top of the container */
+.bar1 {
+    top: -30px;
+    right: 160px;
+}
+
+/* Position bar2 lower down */
+.bar2 {
+    top: -30px;
+    left: 50px;
+}
+
+.info-img1 img, .info-img2 img {
+    width: 410px; /* Adjust image size */
+    height: 80px;
+}
+
+.profile-img {
+    top: -80px;
+    left: 550px;
+    z-index: -1;
+}
+
+.profile-img-pic {
+    top: -150px;
+    right: 545px;
+    z-index: -1;
+}
+
+/* Show the bars with transition */
+.show {
+    opacity: 1;
+    transform: translateY(0); /* Bring it to original position */
+    pointer-events: auto; /* Allow clicks when visible */
+}
