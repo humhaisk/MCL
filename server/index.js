@@ -17,7 +17,7 @@ const io = new Server(server, {
     },
 });
 
-mongoose.connect('mongodb+srv://skiku2002:9Pzio7mTb559xWQ2@cluster0.mhhhp.mongodb.net/').then(()=>
+mongoose.connect('mongodb+srv://skiku2002:9Pzio7mTb559xWQ2@cluster0.mhhhp.mongodb.net/cluster0').then(()=>
 console.log("mongodb Connected")
 )
 
