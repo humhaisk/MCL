@@ -5,6 +5,7 @@ const {Server}=require('socket.io')
 const mongoose=require('mongoose')
 const path = require('path')
 const cors = require('cors')
+require('dotenv').config();
 
 const PORT= 5000;
 
@@ -17,9 +18,10 @@ const io = new Server(server, {
     },
 });
 
-/*mongoose.connect('mongodb+srv://skiku2002:9Pzio7mTb559xWQ2@cluster0.mhhhp.mongodb.net/cluster0').then(()=>
+mongoose.connect(process.env.MongoUrl, {
+  }).then(()=>
 console.log("mongodb Connected")
-)*/
+).catch(err => console.error("MongoDB Connection Error:", err));
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
