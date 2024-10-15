@@ -94,6 +94,11 @@
     right: 545px;
     z-index: -1;
 }
+#profile {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
 
 .formatted-text {
     color: aliceblue;
