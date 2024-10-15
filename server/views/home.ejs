@@ -4,13 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <button class="lup">Left Up</button>
-    <button class="ldown">Left Down</button>
-    <button class="rup">Right Up</button>
-    <button class="rdown">Right Down</button>
+    <div class="three-col">
+        <!-- Left Column: Search Bar -->
+        <div class="col1">
+            <form id="search-form">
+                <input type="text" id="search" placeholder="Search...">
+            </form>
+            <div class="contacts"></div>
+        </div>
 
+        <!-- Middle Column: Form -->
+        <div class="col2">
+            <div class="increment">
+                <form id="increment-form" action="" method="">
+                    <input id="increment" type="number" placeholder="Enter the increment number" required>
+                    <div class="teambtns">
+                        <label for="team1">
+                            <input type="radio" id="team1" name="team" value="KKR"> KKR
+                        </label>
+                        <label for="team2">
+                            <input type="radio" id="team2" name="team" value="CSK"> CSK
+                        </label>
+                        <label for="team3">
+                            <input type="radio" id="team3" name="team" value="MI"> MI
+                        </label>
+                        <label for="team4">
+                            <input type="radio" id="team4" name="team" value="RCB"> RCB
+                        </label>
+                        <label for="team5">
+                            <input type="radio" id="team5" name="team" value="DC"> DC
+                        </label>
+                        <label for="team6">
+                            <input type="radio" id="team6" name="team" value="SRH"> SRH
+                        </label>
+                        <label for="team7">
+                            <input type="radio" id="team7" name="team" value="RR"> RR
+                        </label>
+                    </div>
+                    <button id="sb-btn" type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Column: Text Input and Add Button -->
+        <div class="col3">
+            <form id="text-input-form">
+                <input type="text" id="text-input" placeholder="Enter text...">
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section with Buttons -->
+    <footer class="footer">
+        <div class="footer-buttons">
+            <button class="lup">Left Up</button>
+            <button class="ldown">Left Down</button>
+            <button class="rup">Right Up</button>
+            <button class="rdown">Right Down</button>
+        </div>
+    </footer>
 
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
     <script src="home.js"></script>
