@@ -108,6 +108,19 @@
     white-space: pre-wrap; /* Preserves spaces, tabs, and line breaks */
   }
 
+  .formatted-text2 {
+    color: aliceblue;
+    position: absolute;
+    top: 0;
+    padding-top: 2%;
+    left: 3rem;
+    background-color: rgba(0, 0, 0, 0.644);
+    width: 310px;
+    height: 70px;
+    border-radius: 10px;
+    white-space: pre-wrap; /* Preserves spaces, tabs, and line breaks */
+  }
+
 /* Show the bars with transition */
 .show {
     opacity: 1;
