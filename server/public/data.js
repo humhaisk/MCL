@@ -15,6 +15,14 @@ document.getElementById('player-data').addEventListener('submit', async (e) => {
         });
         const data = await response.json();
         console.log(data);
+        alert('Player data submitted successfully!');
+
+        // Refresh the form fields after successful submission
+        document.getElementById('slno').value = '';
+        document.getElementById('name').value = '';
+        document.getElementById('year').value = '';
+        document.getElementById('role').value = '';
+        document.getElementById('photo').value = ''; // Clear the file input
     } catch (error) {
         console.error('Error submitting player data:', error);
     }
