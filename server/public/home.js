@@ -17,7 +17,7 @@ document.querySelector('.rdown').addEventListener('click', () => {
     socket.emit('r-bar-down'); 
 });
 
-document.querySelector('#sb-btn').addEventListener('click', (event) => {
+document.getElementById('increment-form').addEventListener('submit', function (event) {
     event.preventDefault();
 
     const incrementField = document.querySelector('#increment')
