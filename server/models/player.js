@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const playerSchema = new mongoose.Schema({
-    pic: { type: String, required: true },
+    pic: { type: String, unique:true,default:'uploads/basic.png' },
     slno:{type:String,required:true},
     name: { type: String, required: true },
     year:{type:String,required:true},
