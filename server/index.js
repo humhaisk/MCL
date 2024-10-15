@@ -3,6 +3,8 @@ const express = require('express')
 const bodyParser= require('body-parser')
 const {Server}=require('socket.io')
 const mongoose=require('mongoose')
+const Player = require('./models/player');
+const multer = require('multer');
 const path = require('path')
 const cors = require('cors')
 require('dotenv').config();
@@ -28,10 +30,80 @@ app.use(express.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(express.static(path.join(__dirname,'public')))
+app.use('/uploads', express.static('uploads'));
+
 
 app.get('/',(req,res)=>{
     return res.render('home')
 })
+
+app.get('/data',(req,res)=>{
+    return res.render('data')
+})
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/'); // Directory where files will be saved
+    },
+    filename: function (req, file, cb) {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, file.fieldname + '-' + uniqueSuffix + '-' + file.originalname); // Unique file name
+    }
+});
+
+// Initialize multer with the storage configuration
+const upload = multer({ storage: storage });
+
+app.post('/data', upload.single('photo'), async (req, res) => {
+    try {
+        // Extract form fields from the request body
+        const { slno, name, year, role } = req.body;
+        const pic = req.file.filename; // Get the uploaded image filename
+
+        // Create a new player instance with the form data and uploaded image
+        const newPlayer = new Player({
+            pic, // This is the filename of the uploaded image
+            slno,
+            name,
+            year,
+            role
+        });
+
+        // Save the player data to the database
+        await newPlayer.save();
+        res.status(201).json({ message: 'Player data saved successfully', player: newPlayer });
+    } catch (error) {
+        console.error('Error saving player data:', error);
+        res.status(500).json({ message: 'Error saving player data' });
+    }
+});
+
+
+app.get('/player/:slno', async (req, res) => {
+    const { slno } = req.params;
+
+    try {
+        // Find the player by their serial number
+        const player = await Player.findOne({ slno });
+
+        if (!player) {
+            return res.status(404).json({ message: 'Player not found' });
+        }
+        
+
+        // Send player data, including the image URL or filename
+        res.status(200).json({
+            slno: player.slno,
+            name: player.name,
+            year: player.year,
+            role: player.role,
+            pic: `/uploads/${player.pic}` // Assuming you're storing image filenames
+        });
+    } catch (error) {
+        console.error('Error retrieving player data:', error);
+        res.status(500).json({ message: 'Error retrieving player data' });
+    }
+});
 
 io.on('connection', (socket) => {
     console.log('A user connected');
@@ -56,6 +128,9 @@ io.on('connection', (socket) => {
     })
     socket.on('text-added',(input)=>{
         io.emit('text-added',(input))
+    })
+    socket.on('player-update',(player)=>{
+        io.emit('player-update',(player))
     })
 })
 

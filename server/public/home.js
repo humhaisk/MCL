@@ -47,3 +47,38 @@ document.querySelector('#addtext').addEventListener('click',(e)=>{
     socket.emit('text-added',(input))
 })
     
+document.getElementById('search-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const slno = document.getElementById('search').value;
+
+    try {
+        const response = await fetch(`/player/${slno}`);
+        if (response.ok) {
+            const player = await response.json();
+            displayPlayer(player);  // Call the function to display player data
+        } else {
+            document.querySelector('.contacts').innerHTML = 'Player not found';
+        }
+    } catch (error) {
+        console.error('Error fetching player data:', error);
+        document.querySelector('.contacts').innerHTML = 'Error fetching player data';
+    }
+});
+
+// Function to display the player's data in the .contacts div
+function displayPlayer(player) {
+    const contactsDiv = document.querySelector('.contacts');
+    contactsDiv.innerHTML = `
+        <div>
+            <p><strong>Sl. No.:</strong> ${player.slno}</p>
+            <p><strong>Name:</strong> ${player.name}</p>
+            <p><strong>Year:</strong> ${player.year}</p>
+            <p><strong>Role:</strong> ${player.role}</p>
+            <img src="${player.pic}" alt="${player.name}" width="150">
+        </div>
+        <button id='send'>Send</button>
+    `;
+    document.querySelector('#send').addEventListener('click',()=>{
+        socket.emit('player-update',(player))
+    })
+}
