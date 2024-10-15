@@ -17,9 +17,12 @@ const io = new Server(server, {
     },
 });
 
-mongoose.connect('mongodb+srv://skiku2002:9Pzio7mTb559xWQ2@cluster0.mhhhp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(()=>
+mongoose.connect('mongodb+srv://skiku2002:9Pzio7mTb559xWQ2@cluster0.mhhhp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+    useNewUrlParser: false,
+    useUnifiedTopology: false,
+  }).then(()=>
 console.log("mongodb Connected")
-)
+).catch(err => console.error("MongoDB Connection Error:", err));
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
