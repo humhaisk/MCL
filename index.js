@@ -1,5 +1,5 @@
 
-const socket = io('https://mcl.onrender.com/');
+const socket = io('https://mcl.onrender.com');
 
 // Listen for color updates from the server
 socket.on('l-bar-up', () => {

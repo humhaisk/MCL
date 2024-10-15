@@ -1,4 +1,4 @@
-const socket = io('https://mcl.onrender.com/');
+const socket = io('https://mcl.onrender.com');
 
 document.querySelector('.lup').addEventListener('click', () => {
     console.log('l up clicked')
