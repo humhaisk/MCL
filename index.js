@@ -48,17 +48,13 @@ socket.on('player-update', (player) => {
     console.log(player);
     
     // Create the formatted HTML string
-    const playerInfoHTML = `
-        <div>
-            <p><strong>Name:</strong> ${player.name}</p>
-            <p><strong>Year:</strong> ${player.year}</p>
-            <p><strong>Role:</strong> ${player.role}</p>
-        </div>
-    `;
+    const playerInfoHTML = `Player name : ${player.name}
+Year :${player.year}
+Role :${player.role}`;
     
     // Set the innerHTML of output2 to the formatted HTML
-    document.querySelector('#output2').innerHTML = playerInfoHTML;
-    document.querySelector('#profile').src='player.pic'
+    document.querySelector('#output2').textContent = playerInfoHTML;
+    document.querySelector('#profile').src=player.pic
 
     const bar2 = document.querySelector('.bar2');
     bar2.classList.add('show');
