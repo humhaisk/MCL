@@ -22,10 +22,10 @@ socket.on('r-bar-down', () => {
 socket.on('updated-bid',({i,v})=>{
     const bidElement = document.querySelector('.bid'); // Select the bid element
     const preval = Number(bidElement.innerHTML); 
-    const newValue = preval + Number(i.i); 
+    const newValue = preval + Number(i); 
     console.log(newValue)
     bidElement.innerHTML = newValue;   
-     document.querySelector('.team').innerHTML = i.v
+     document.querySelector('.team').innerHTML = v
 })
 
 socket.on('reset',()=>{
