@@ -1,5 +1,5 @@
 
-const socket = io('http://localhost:5000');
+const socket = io('https://mcl.onrender.com/');
 
 // Listen for color updates from the server
 socket.on('l-bar-up', () => {
@@ -20,5 +20,5 @@ socket.on('r-bar-down', () => {
 });
 
 socket.on('updated-bid',(i,v)=>{
-    
+
 })
