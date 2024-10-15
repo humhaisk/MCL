@@ -20,6 +20,7 @@ socket.on('r-bar-down', () => {
 });
 
 socket.on('updated-bid',({i,v})=>{
+    console.log(i)
     const bidElement = document.querySelector('.bid'); // Select the bid element
     const preval = Number(bidElement.innerHTML); 
     const newValue = preval + Number(i); 
