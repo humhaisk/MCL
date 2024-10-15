@@ -54,6 +54,9 @@ io.on('connection', (socket) => {
     socket.on('reset',()=>{
         io.emit('reset')
     })
+    socket.on('text-added',(input)=>{
+        io.emit('text-added',(input))
+    })
 })
 
 app.set('view engine','ejs')

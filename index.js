@@ -1,5 +1,5 @@
 
-const socket = io('https://mcl.onrender.com/');
+const socket = io('https://mcl.onrender.com');
 
 // Listen for color updates from the server
 socket.on('l-bar-up', () => {
@@ -35,4 +35,11 @@ socket.on('reset',()=>{
     console.log(newValue)
     bidElement.innerHTML = newValue;   
      document.querySelector('.team').innerHTML = ""
+})
+
+socket.on('text-added',(input)=>{
+    console.log(input)
+    document.querySelector('#output').textContent = input;
+    const bar1 = document.querySelector('.bar1');
+    bar1.classList.add('show');
 })
