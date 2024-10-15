@@ -46,8 +46,11 @@ io.on('connection', (socket) => {
     socket.on('r-bar-down', () => {
         io.emit('r-bar-down');
     });
-    socket.on('updated-bid',(i,v)=>{
-        io.emit('updated-bid',{i,v})
+    socket.on('updated-bid',({i,v}) =>{
+        io.emit('updated-bid',({i,v}))
+    });
+    socket.on('reset',()=>{
+        io.emit('reset')
     })
 })
 

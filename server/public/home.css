@@ -54,6 +54,14 @@ body {
     color: white;
     gap: 1rem;
 }
+#reset {
+    position: fixed;
+    display: flex;
+    top: 20%;
+    right: 40%;
+    width: 30px;
+    height: 30px;
+}
 
 .teambtns {
     display: flex;
