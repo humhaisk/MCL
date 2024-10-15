@@ -45,6 +45,5 @@ document.querySelector('#addtext').addEventListener('click',(e)=>{
     console.log('clicked')
     const input = document.getElementById('userInput').value;
     socket.emit('text-added',(input))
-    document.getElementById('userInput').innerHTML=""
 })
     
