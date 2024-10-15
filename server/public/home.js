@@ -30,7 +30,6 @@ document.querySelector('#sb-btn').addEventListener('click', (event) => {
 
     console.log('Increment Number:', incrementValue);
     console.log('Selected Team:', teamValue);
-    incrementField.value = "";  // Clear increment input
     if (teamField) {
         teamField.checked = false;  // Clear selected radio button
     }
@@ -69,7 +68,7 @@ document.getElementById('search-form').addEventListener('submit', async (e) => {
 function displayPlayer(player) {
     const contactsDiv = document.querySelector('.contacts');
     contactsDiv.innerHTML = `
-        <div>
+        <div class='data'>
             <p><strong>Sl. No.:</strong> ${player.slno}</p>
             <p><strong>Name:</strong> ${player.name}</p>
             <p><strong>Year:</strong> ${player.year}</p>

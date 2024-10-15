@@ -45,13 +45,15 @@ socket.on('text-added',(input)=>{
 })
 
 socket.on('player-update', (player) => {
-    console.log(player);
+
     
     // Create the formatted HTML string
     const playerInfoHTML = `Player name : ${player.name}
 Year :${player.year}
 Role :${player.role}`;
     
+    //const fullPath = player.pic;
+    //const filename = fullPath.split('/').pop();
     // Set the innerHTML of output2 to the formatted HTML
     document.querySelector('#output2').textContent = playerInfoHTML;
     document.querySelector('#profile').src=player.pic
