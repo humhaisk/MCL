@@ -81,3 +81,7 @@ function displayPlayer(player) {
         socket.emit('player-update',(player))
     })
 }
+
+document.querySelector('#sold').addEventListener('click',()=>{
+    socket.emit('sold')
+})
