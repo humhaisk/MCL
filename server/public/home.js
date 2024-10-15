@@ -16,4 +16,24 @@ document.querySelector('.rdown').addEventListener('click', () => {
     console.log('r down clicked')
     socket.emit('r-bar-down'); 
 });
+
+document.querySelector('#sb-btn').addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const incrementField = document.querySelector('#increment')
+    const incrementValue = document.querySelector('#increment').value;
+
+    const teamField = document.querySelector('input[name="team"]:checked')
+    const teamValue = document.querySelector('input[name="team"]:checked')?.value;
+
+    socket.emit('updated-bid',{incrementValue, teamValue})
+
+    console.log('Increment Number:', incrementValue);
+    console.log('Selected Team:', teamValue);
+    incrementField.value = "";  // Clear increment input
+    if (teamField) {
+        teamField.checked = false;  // Clear selected radio button
+    }
+});
+
     

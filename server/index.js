@@ -16,6 +16,11 @@ const io = new Server(server, {
         methods: ['GET', 'POST'],
     },
 });
+
+mongoose.connect('mongodb+srv://skiku2002:9Pzio7mTb559xWQ2@cluster0.mhhhp.mongodb.net/').then(()=>
+console.log("mongodb Connected")
+)
+
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(bodyParser.json())
@@ -41,6 +46,9 @@ io.on('connection', (socket) => {
     socket.on('r-bar-down', () => {
         io.emit('r-bar-down');
     });
+    socket.on('updated-bid',(i,v)=>{
+        io.emit('updated-bid',{i,v})
+    })
 })
 
 app.set('view engine','ejs')

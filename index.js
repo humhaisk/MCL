@@ -18,3 +18,7 @@ socket.on('r-bar-down', () => {
     const bar1 = document.querySelector('.bar1');
     bar1.classList.remove('show');
 });
+
+socket.on('updated-bid',(i,v)=>{
+    
+})
