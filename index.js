@@ -36,3 +36,10 @@ socket.on('reset',()=>{
     bidElement.innerHTML = newValue;   
      document.querySelector('.team').innerHTML = ""
 })
+
+socket.on('text-added',(input)=>{
+    console.log(input)
+    document.querySelector('#output').textContent = input;
+    const bar1 = document.querySelector('.bar1');
+    bar1.classList.add('show');
+})

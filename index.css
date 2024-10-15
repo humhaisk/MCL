@@ -83,7 +83,6 @@
     width: 410px; /* Adjust image size */
     height: 80px;
 }
-
 .profile-img {
     top: -80px;
     left: 550px;
@@ -95,6 +94,17 @@
     right: 545px;
     z-index: -1;
 }
+
+.formatted-text {
+    color: aliceblue;
+    position: absolute;
+    top: 0;
+    left: 3rem;
+    background-color: rgb(0, 0, 0);
+    width: 310px;
+    height: 70px;
+    white-space: pre-wrap; /* Preserves spaces, tabs, and line breaks */
+  }
 
 /* Show the bars with transition */
 .show {

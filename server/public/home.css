@@ -113,21 +113,14 @@ body {
 }
 
 /* Right column: Text input and add button */
-#text-input-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+
+#userInput {
+    margin: 5px;
 }
 
-#text-input {
-    padding: 10px;
-    width: 80%;
-    margin-bottom: 1rem;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
 
-#text-input-form button {
+#addtext {
     padding: 10px 20px;
     border-radius: 4px;
     border: none;
