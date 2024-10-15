@@ -26,7 +26,7 @@ document.querySelector('#sb-btn').addEventListener('click', (event) => {
     const teamField = document.querySelector('input[name="team"]:checked')
     const teamValue = document.querySelector('input[name="team"]:checked')?.value;
 
-    socket.emit('updated-bid',{incrementValue, teamValue})
+    socket.emit('updated-bid',({i:incrementValue,v: teamValue}))
 
     console.log('Increment Number:', incrementValue);
     console.log('Selected Team:', teamValue);
@@ -35,5 +35,10 @@ document.querySelector('#sb-btn').addEventListener('click', (event) => {
         teamField.checked = false;  // Clear selected radio button
     }
 });
+
+document.querySelector('#reset').addEventListener('click',()=>{
+    console.log('clicked reset')
+    socket.emit('reset')
+})
 
     

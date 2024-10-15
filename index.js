@@ -19,6 +19,19 @@ socket.on('r-bar-down', () => {
     bar1.classList.remove('show');
 });
 
-socket.on('updated-bid',(i,v)=>{
+socket.on('updated-bid',({i,v})=>{
+    const bidElement = document.querySelector('.bid'); // Select the bid element
+    const preval = Number(bidElement.innerHTML); 
+    const newValue = preval + Number(i.i); 
+    console.log(newValue)
+    bidElement.innerHTML = newValue;   
+     document.querySelector('.team').innerHTML = i.v
+})
 
+socket.on('reset',()=>{
+    const bidElement = document.querySelector('.bid');
+    const newValue = 0; 
+    console.log(newValue)
+    bidElement.innerHTML = newValue;   
+     document.querySelector('.team').innerHTML = ""
 })
