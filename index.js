@@ -22,19 +22,25 @@ socket.on('r-bar-down', () => {
 socket.on('updated-bid',({i,v})=>{
     console.log(i)
     const bidElement = document.querySelector('.bid'); // Select the bid element
+    const bidElement2 = document.querySelector('.bid2'); 
     const preval = Number(bidElement.innerHTML); 
     const newValue = preval + Number(i); 
     console.log(newValue)
     bidElement.innerHTML = newValue;   
-     document.querySelector('.team').innerHTML = v
+    bidElement2.innerHTML = newValue;   
+    document.querySelector('.team').innerHTML = v
+    document.querySelector('.team2').innerHTML = v
 })
 
 socket.on('reset',()=>{
     const bidElement = document.querySelector('.bid');
+    const bidElement2 = document.querySelector('.bid2');
     const newValue = 0; 
     console.log(newValue)
     bidElement.innerHTML = newValue;   
+    bidElement2.innerHTML = newValue;   
     document.querySelector('.team').innerHTML = ""
+    document.querySelector('.team2').innerHTML = ""
     const playerbar= document.querySelector('.profile-img-pic')
     playerbar.classList.remove('show')
     document.querySelector('#output').textContent = "";
