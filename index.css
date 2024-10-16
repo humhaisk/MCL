@@ -124,12 +124,16 @@
     top: -80px;
     left: 550px;
     z-index: -1;
+    transition: opacity 0.1s ease, transform 0.1s ease; /* Transition effect */
+    opacity: 0;
 }
 
 .profile-img-pic {
     top: -150px;
+    background-color: transparent;
     right: 545px;
     z-index: -1;
+    transition: opacity 2s ease, transform 2s ease; /* Transition effect */
     opacity:0;
 }
 #profile {
