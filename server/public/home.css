@@ -6,15 +6,12 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Prevent scrolling on desktop */
+    overflow: hidden;
 }
 
 .three-col {
     display: flex;
     flex: 1;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
 }
 
 .col1, .col2, .col3 {
@@ -24,8 +21,6 @@ body {
     gap: 1rem;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 .col1 {
@@ -43,26 +38,22 @@ body {
 /* Form in the middle column */
 .increment {
     background-color: rgba(0, 0, 0, 0.88);
-    width: 100%;
-    max-width: 400px;
-    height: auto;
+    width: 80%;
+    height: 60%;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
-    box-sizing: border-box;
 }
 
 #increment-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 80%;
     color: white;
     gap: 1rem;
 }
-
 #reset {
     position: fixed;
     display: flex;
@@ -78,16 +69,23 @@ body {
 }
 
 #increment-form input[type="number"] {
-    width: 100%;
-    max-width: 300px;
+    width: 50%;
     padding: 8px;
     border-radius: 4px;
     border: none;
     margin-bottom: 1rem;
-    box-sizing: border-box;
 }
 
-#increment-form button, #sold {
+#increment-form button {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+#sold {
     padding: 10px 20px;
     border-radius: 4px;
     border: none;
@@ -102,31 +100,25 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
 }
 
 #search {
     padding: 10px;
-    width: 100%;
-    max-width: 300px;
+    width: 90%;
     border-radius: 4px;
     border: 1px solid #000000;
-    box-sizing: border-box;
 }
 
 .contacts {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: 400px;
-    height: auto;
+    width: 80%;
+    height: 50%;
     background-color: #f1f1f1;
-    border-radius: 10px;
+    border-radius: 10%;
     color: black;
     gap: 1rem;
-    padding: 1rem;
-    box-sizing: border-box;
 }
 
 #send {
@@ -137,22 +129,21 @@ body {
     color: white;
     cursor: pointer;
 }
-
 .data {
-    width: 100%;
-    max-width: 400px;
+    width: 80%;
     border-radius: 2px;
-    padding: 1rem;
+    padding-left: 10px;
     color: white;
     background-color: #333;
-    box-sizing: border-box;
 }
 
 /* Right column: Text input and add button */
+
+
 #userInput {
     margin: 5px;
-    width: 100%;
 }
+
 
 #addtext {
     padding: 10px 20px;
@@ -170,15 +161,11 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    position: fixed;
-    bottom: 0;
 }
 
 .footer-buttons {
     display: flex;
     gap: 2rem;
-    width: 100%;
-    justify-content: space-around;
 }
 
 .footer-buttons button {
@@ -204,6 +191,7 @@ body {
     }
 
     .footer {
+        position: fixed;
         top: 0;
         bottom: auto;
         padding: 10px;
@@ -229,12 +217,13 @@ body {
     }
 
     .increment, .contacts, .data {
-        width: 100%;
-        max-width: 100%;
+        width: 90%;
+        max-width: 90%;
         height: auto;
     }
 
     #increment-form input[type="number"] {
+        margin-top: 5%;
         width: 100%;
     }
 
@@ -242,8 +231,25 @@ body {
         width: 100%;
     }
 
+    #search-form {
+        margin-top: 5%;
+    }
+
     .teambtns {
+        margin-top: -5%;
         flex-direction: column;
+    }
+
+    #userInput {
+        margin-top: 5%;
+    }
+
+    #addtext {
+        margin-bottom: 5%;
+    }
+
+    #increment-form button {
+        margin-bottom: 5%;
     }
 
     .col2 {
@@ -251,10 +257,12 @@ body {
     }
 
     .col1 {
+        margin-top: 5%;
         order: 2;
     }
 
     .col3 {
+        margin-top: 5%;
         order: 3;
     }
 }
