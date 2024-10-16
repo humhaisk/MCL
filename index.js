@@ -50,6 +50,8 @@ socket.on('reset',()=>{
     bar2.classList.remove('show');
     const bar = document.querySelector('.infos2');
     bar.classList.remove('show')
+    const proi = document.querySelector('.profile-img')
+    proi.classList.remove('show')
 
 })
 
@@ -78,6 +80,9 @@ Role :${player.role}`;
     // Set the innerHTML of output2 to the formatted HTML
     document.querySelector('#output2').textContent = playerInfoHTML;
     document.querySelector('#profile').src='server'+player.pic
+
+    const proi = document.querySelector('.profile-img')
+    proi.classList.add('show')
 
 
     bar2.classList.add('show');

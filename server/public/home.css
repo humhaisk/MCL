@@ -6,12 +6,15 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    overflow: hidden;
+    overflow: hidden; /* Prevent scrolling on desktop */
 }
 
 .three-col {
     display: flex;
     flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .col1, .col2, .col3 {
@@ -21,6 +24,8 @@ body {
     gap: 1rem;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 .col1 {
@@ -38,22 +43,26 @@ body {
 /* Form in the middle column */
 .increment {
     background-color: rgba(0, 0, 0, 0.88);
-    width: 80%;
-    height: 60%;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 #increment-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
+    width: 100%;
     color: white;
     gap: 1rem;
 }
+
 #reset {
     position: fixed;
     display: flex;
@@ -69,23 +78,16 @@ body {
 }
 
 #increment-form input[type="number"] {
-    width: 50%;
+    width: 100%;
+    max-width: 300px;
     padding: 8px;
     border-radius: 4px;
     border: none;
     margin-bottom: 1rem;
+    box-sizing: border-box;
 }
 
-#increment-form button {
-    padding: 10px 20px;
-    border-radius: 4px;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    cursor: pointer;
-}
-
-#sold {
+#increment-form button, #sold {
     padding: 10px 20px;
     border-radius: 4px;
     border: none;
@@ -100,25 +102,31 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
 }
 
 #search {
     padding: 10px;
-    width: 90%;
+    width: 100%;
+    max-width: 300px;
     border-radius: 4px;
     border: 1px solid #000000;
+    box-sizing: border-box;
 }
 
 .contacts {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
-    height: 50%;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
     background-color: #f1f1f1;
-    border-radius: 10%;
+    border-radius: 10px;
     color: black;
     gap: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 #send {
@@ -129,21 +137,22 @@ body {
     color: white;
     cursor: pointer;
 }
+
 .data {
-    width: 80%;
+    width: 100%;
+    max-width: 400px;
     border-radius: 2px;
-    padding-left: 10px;
+    padding: 1rem;
     color: white;
     background-color: #333;
+    box-sizing: border-box;
 }
 
 /* Right column: Text input and add button */
-
-
 #userInput {
     margin: 5px;
+    width: 100%;
 }
-
 
 #addtext {
     padding: 10px 20px;
@@ -161,11 +170,15 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    position: fixed;
+    bottom: 0;
 }
 
 .footer-buttons {
     display: flex;
     gap: 2rem;
+    width: 100%;
+    justify-content: space-around;
 }
 
 .footer-buttons button {
@@ -175,4 +188,73 @@ body {
     background-color: #007BFF;
     color: white;
     cursor: pointer;
+}
+
+/* Media query for mobile phones */
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto; /* Allow scrolling on mobile */
+    }
+
+    #reset {
+        right: 10%;
+    }
+
+    .footer {
+        top: 0;
+        bottom: auto;
+        padding: 10px;
+        z-index: 999;
+    }
+
+    .footer-buttons {
+        justify-content: space-around;
+        gap: 0;
+        width: 100%;
+    }
+
+    .three-col {
+        flex-direction: column;
+        margin-top: 60px; /* to avoid overlap with the footer buttons */
+        width: 100%;
+    }
+
+    .col2, .col1, .col3 {
+        order: 1;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .increment, .contacts, .data {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    #increment-form input[type="number"] {
+        width: 100%;
+    }
+
+    #search {
+        width: 100%;
+    }
+
+    .teambtns {
+        flex-direction: column;
+    }
+
+    .col2 {
+        order: 1;
+    }
+
+    .col1 {
+        order: 2;
+    }
+
+    .col3 {
+        order: 3;
+    }
 }
