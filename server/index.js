@@ -57,7 +57,14 @@ app.post('/data', upload.single('photo'), async (req, res) => {
     try {
         // Extract form fields from the request body
         const { slno, name, year, role } = req.body;
-        const pic = req.file.filename; // Get the uploaded image filename
+        let pic; 
+
+        if (req.file) {
+            pic = req.file.filename; // Get the uploaded image filename
+        } else {
+            pic = 'basic.png'; // Use default image path if no file is uploaded
+        }
+        console.log(pic)
 
         // Create a new player instance with the form data and uploaded image
         const newPlayer = new Player({
