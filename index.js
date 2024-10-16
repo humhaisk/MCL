@@ -34,7 +34,15 @@ socket.on('reset',()=>{
     const newValue = 0; 
     console.log(newValue)
     bidElement.innerHTML = newValue;   
-     document.querySelector('.team').innerHTML = ""
+    document.querySelector('.team').innerHTML = ""
+    const playerbar= document.querySelector('.profile-img-pic')
+    playerbar.classList.remove('show')
+    document.querySelector('#output').textContent = "";
+    const bar1 = document.querySelector('.bar1');
+    bar1.classList.remove('show');
+    const bar2 = document.querySelector('.bar2');
+    bar2.classList.remove('show');
+
 })
 
 socket.on('text-added',(input)=>{
@@ -46,6 +54,11 @@ socket.on('text-added',(input)=>{
 
 socket.on('player-update', (player) => {
 
+    const playerbar= document.querySelector('.profile-img-pic')
+    const bar2 = document.querySelector('.bar2');
+
+    bar2.classList.remove('show');
+    playerbar.classList.remove('show')
     
     // Create the formatted HTML string
     const playerInfoHTML = `Player name : ${player.name}
@@ -58,6 +71,7 @@ Role :${player.role}`;
     document.querySelector('#output2').textContent = playerInfoHTML;
     document.querySelector('#profile').src='server'+player.pic
 
-    const bar2 = document.querySelector('.bar2');
+
     bar2.classList.add('show');
+    playerbar.classList.add('show')
 });
