@@ -56,7 +56,7 @@ Role :${player.role}`;
     //const filename = fullPath.split('/').pop();
     // Set the innerHTML of output2 to the formatted HTML
     document.querySelector('#output2').textContent = playerInfoHTML;
-    document.querySelector('#profile').src=player.pic
+    document.querySelector('#profile').src='server'+player.pic
 
     const bar2 = document.querySelector('.bar2');
     bar2.classList.add('show');
