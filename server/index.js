@@ -138,6 +138,9 @@ io.on('connection', (socket) => {
     socket.on('player-update',(player)=>{
         io.emit('player-update',(player))
     })
+    socket.on('sold',()=>{
+        io.emit('sold')
+    })
 })
 
 app.set('view engine','ejs')

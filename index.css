@@ -27,6 +27,17 @@
     justify-content: center;
     gap: 2px;
 }
+.infos2{
+    position: absolute;
+    background-color: aliceblue;
+    width: 25%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    opacity: 0;
+}
+
 .infos p {
     color: blue;
     font-weight: 800;

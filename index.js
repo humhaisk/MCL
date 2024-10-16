@@ -42,6 +42,8 @@ socket.on('reset',()=>{
     bar1.classList.remove('show');
     const bar2 = document.querySelector('.bar2');
     bar2.classList.remove('show');
+    const bar = document.querySelector('.infos2');
+    bar.classList.remove('show')
 
 })
 
@@ -75,3 +77,8 @@ Role :${player.role}`;
     bar2.classList.add('show');
     playerbar.classList.add('show')
 });
+
+socket.on('sold',()=>{
+    const bar = document.querySelector('.infos2');
+    bar.classList.add('show')
+})
