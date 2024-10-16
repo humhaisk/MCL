@@ -124,7 +124,8 @@
     top: -80px;
     left: 550px;
     z-index: -1;
-    transition: opacity 0.1s ease, transform 0.1s ease; /* Transition effect */
+    transform: translateY(20px) scale(1); /* Start slightly higher and smaller */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Transition effect */
     opacity: 0;
 }
 
