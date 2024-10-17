@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players List</title>
+    <link rel="stylesheet" href="player.css">
+</head>
+<body>
+    <h1>Players List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Sl. No.</th>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Year</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% players.forEach(player => { %>
+            <tr>
+                <td><%= player.slno %></td>
+                <td><img src="uploads/<%= player.pic %>" alt="Player Picture" width="50" height="50"></td>
+                <td><%= player.name %></td>
+                <td><%= player.year %></td>
+                <td><%= player.role %></td>
+                <td>
+                    <form action="/players/<%= player._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

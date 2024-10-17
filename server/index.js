@@ -6,6 +6,7 @@ const mongoose=require('mongoose')
 const Player = require('./models/player');
 const multer = require('multer');
 const path = require('path')
+const methodOverride = require('method-override');
 const cors = require('cors')
 require('dotenv').config();
 
@@ -28,6 +29,7 @@ console.log("mongodb Connected")
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(bodyParser.json())
+app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(express.static(path.join(__dirname,'public')))
 app.use('/uploads', express.static('uploads'));
@@ -109,6 +111,17 @@ app.get('/player/:slno', async (req, res) => {
         console.error('Error retrieving player data:', error);
         res.status(500).json({ message: 'Error retrieving player data' });
     }
+});
+
+app.get('/players',async(req,res)=>{
+    const players = await Player.find({})
+    return res.render('player',{players})
+})
+
+app.delete('/players/:id', async (req, res) => {
+    const { id } = req.params;
+    await Player.findByIdAndDelete(id);
+    res.redirect('/players');
 });
 
 io.on('connection', (socket) => {
