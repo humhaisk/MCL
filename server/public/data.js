@@ -27,3 +27,7 @@ document.getElementById('player-data').addEventListener('submit', async (e) => {
         console.error('Error submitting player data:', error);
     }
 });
+
+document.querySelector('#players').addEventListener('click',async()=>{
+    window.location.href = '/players';
+})

@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -53,9 +54,19 @@ input[type="submit"]:hover {
     background-color: #45a049;
 }
 
+#players{
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
 /* Responsive adjustments */
 @media (max-width: 600px) {
     form {
+        width: 90%;
         padding: 15px;
     }
 
@@ -67,6 +78,9 @@ input[type="submit"]:hover {
     input[type="number"],
     input[type="file"] {
         padding: 8px;
+    }
+    #players{
+        margin-bottom: 5%;
     }
 }
 
@@ -83,5 +97,8 @@ input[type="submit"]:hover {
     input[type="number"],
     input[type="file"] {
         padding: 6px;
+    }
+    #players{
+        margin-bottom: 5%;
     }
 }
