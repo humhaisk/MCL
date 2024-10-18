@@ -134,7 +134,7 @@
 .profile-img {
     top: -80px;
     left: 550px;
-    z-index: -1;
+    z-index: -2;
     transform: translateY(20px) scale(1); /* Start slightly higher and smaller */
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Transition effect */
     opacity: 0;
@@ -143,7 +143,7 @@
 .profile-img-pic {
     top: -150px;
     background-color: transparent;
-    right: 545px;
+    right: 540px;
     z-index: -1;
     transition: opacity 2s ease, transform 2s ease; /* Transition effect */
     opacity:0;
@@ -152,6 +152,7 @@
     height: 200px;
     width: 200px;
     border-radius: 50%;
+    z-index:-1;
     transform: translateY(0); 
 }
 
