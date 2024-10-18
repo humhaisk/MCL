@@ -21,6 +21,8 @@ socket.on('r-bar-down', () => {
 
 socket.on('updated-bid',({i,v})=>{
     console.log(i)
+    const infos =document.querySelector('.infos')
+    infos.classList.add('unrolled')
     const bidElement = document.querySelector('.bid'); // Select the bid element
     const bidElement2 = document.querySelector('.bid2'); 
     const preval = Number(bidElement.innerHTML); 
@@ -33,6 +35,10 @@ socket.on('updated-bid',({i,v})=>{
 })
 
 socket.on('reset',()=>{
+    const infos =document.querySelector('.infos')
+    infos.classList.remove('unrolled')
+    const infos2 =document.querySelector('.infos2')
+    infos2.classList.remove('unrolled')
     const bidElement = document.querySelector('.bid');
     const bidElement2 = document.querySelector('.bid2');
     const newValue = 0; 
@@ -90,6 +96,8 @@ Role :${player.role}`;
 });
 
 socket.on('sold',()=>{
+    const infos =document.querySelector('.infos')
+    infos.classList.remove('unrolled')
     const bar = document.querySelector('.infos2');
     bar.classList.add('show')
 })
