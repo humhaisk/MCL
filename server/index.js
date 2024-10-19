@@ -154,6 +154,9 @@ io.on('connection', (socket) => {
     socket.on('sold',()=>{
         io.emit('sold')
     })
+    socket.on('unsold',()=>{
+        io.emit('unsold')
+    })
 })
 
 app.set('view engine','ejs')
