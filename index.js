@@ -101,3 +101,9 @@ socket.on('sold',()=>{
     const bar = document.querySelector('.infos2');
     bar.classList.add('show')
 })
+socket.on('unsold',()=>{
+    const infos =document.querySelector('.infos')
+    infos.classList.add('unrolled')
+    const bar = document.querySelector('.infos2');
+    bar.classList.remove('show')
+})

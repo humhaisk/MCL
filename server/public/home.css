@@ -94,6 +94,15 @@ body {
     cursor: pointer;
 }
 
+#unsold {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
 /* Left column: Search bar */
 #search-form {
     display: flex;
