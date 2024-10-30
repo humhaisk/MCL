@@ -9,7 +9,7 @@ document.getElementById('player-data').addEventListener('submit', async (e) => {
     const photoFile = document.getElementById('photo').files[0]; // Get the image file
 
     // Set size limit (e.g., 2 MB)
-    const maxSize = 2 * 1024 * 1024; // 2 MB in bytes
+    const maxSize =  60* 1024; // 60 KB in bytes
 
     if (photoFile) {
         // Check file size
