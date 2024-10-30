@@ -43,7 +43,7 @@ app.get('/data',(req,res)=>{
     return res.render('data')
 })
 
-const storage = multer.diskStorage({
+/*const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'uploads/'); // Directory where files will be saved
     },
@@ -53,31 +53,27 @@ const storage = multer.diskStorage({
 });
 
 // Initialize multer with the storage configuration
-const upload = multer({ storage: storage });
+const upload = multer({ storage: storage });*/
 
-app.post('/data', upload.single('photo'), async (req, res) => {
+app.post('/data', async (req, res) => {
+    console.log('here')
     try {
-        // Extract form fields from the request body
-        const { slno, name, year, role } = req.body;
-        let pic; 
+        const { pic, slno, name, year, role } = req.body;
 
-        if (req.file) {
-            pic = req.file.filename; // Get the uploaded image filename
-        } else {
-            pic = 'basic.png'; // Use default image path if no file is uploaded
+        // Check for file size limit on server side (optional)
+        const maxSize = 2 * 1024 * 1024; // 2 MB in bytes
+        if (Buffer.byteLength(pic) > maxSize) {
+            return res.status(400).json({ message: 'File size exceeds the 5 MB limit.' });
         }
-        console.log(pic)
 
-        // Create a new player instance with the form data and uploaded image
         const newPlayer = new Player({
-            pic, // This is the filename of the uploaded image
+            pic, // This will now be a data URL string
             slno,
             name,
             year,
             role
         });
 
-        // Save the player data to the database
         await newPlayer.save();
         res.status(201).json({ message: 'Player data saved successfully', player: newPlayer });
     } catch (error) {
@@ -105,7 +101,7 @@ app.get('/player/:slno', async (req, res) => {
             name: player.name,
             year: player.year,
             role: player.role,
-            pic: `/uploads/${player.pic}` // Assuming you're storing image filenames
+            pic: `${player.pic}` // Assuming you're storing image filenames
         });
     } catch (error) {
         console.error('Error retrieving player data:', error);
