@@ -23,7 +23,7 @@
             <% players.forEach(player => { %>
             <tr>
                 <td><%= player.slno %></td>
-                <td><img src="uploads/<%= player.pic %>" alt="Player Picture" width="50" height="50"></td>
+                <td><img src="<%= player.pic %>" alt="Player Picture" width="50" height="50"></td>
                 <td><%= player.name %></td>
                 <td><%= player.year %></td>
                 <td><%= player.role %></td>

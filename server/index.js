@@ -61,7 +61,7 @@ app.post('/data', async (req, res) => {
         const { pic, slno, name, year, role } = req.body;
 
         // Check for file size limit on server side (optional)
-        const maxSize = 2 * 1024 * 1024; // 2 MB in bytes
+        const maxSize = 60 * 1024; //  60 KB in bytes
         if (Buffer.byteLength(pic) > maxSize) {
             return res.status(400).json({ message: 'File size exceeds the 5 MB limit.' });
         }
