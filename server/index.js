@@ -61,10 +61,10 @@ app.post('/data', async (req, res) => {
         const { pic, slno, name, year, role } = req.body;
 
         // Check for file size limit on server side (optional)
-        const maxSize = 60 * 1024; //  60 KB in bytes
+        /*const maxSize = 60 * 1024; //  60 KB in bytes
         if (Buffer.byteLength(pic) > maxSize) {
             return res.status(400).json({ message: 'File size exceeds the 5 MB limit.' });
-        }
+        }*/
 
         const newPlayer = new Player({
             pic, // This will now be a data URL string
